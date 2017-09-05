@@ -32,8 +32,8 @@ app.post('/form',function(req, res){
 });
 
 //wait for a connection
-app.listen(3000, function () {
-  console.log('Server is running. Point your browser to: http://localhost:4000');
+app.listen(80, function () {
+  console.log('Server is running. Point your browser to: http://localhost:80');
 });
 //require the express nodejs module
 var express = require('express'),
@@ -129,6 +129,6 @@ function processFaqRequest(data) {
 	return result;
 }
 //wait for a connection
-app.listen(4000, function () {
-  console.log('Server is running. Point your browser to: http://localhost:4000');
+app.listen(80, function () {
+  console.log('Server is running. Point your browser to: http://localhost:80');
 });
