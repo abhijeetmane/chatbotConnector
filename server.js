@@ -31,8 +31,9 @@ app.post('/form',function(req, res){
 	console.log('you posted: First Name: ' + req.body.firstName + ', Last Name: ' + req.body.lastName);
 });
 
+
 //wait for a connection
-app.listen(80, function () {
+app.listen(4000, function () {
   console.log('Server is running. Point your browser to: http://localhost:80');
 });
 //require the express nodejs module
@@ -129,6 +130,6 @@ function processFaqRequest(data) {
 	return result;
 }
 //wait for a connection
-app.listen(80, function () {
+app.listen(4000, function () {
   console.log('Server is running. Point your browser to: http://localhost:80');
 });
