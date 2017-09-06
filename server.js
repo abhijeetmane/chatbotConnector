@@ -36,9 +36,7 @@ app.post('/fulfillment',function(req, res){
 				resultVal = processFaqRequest(req.body.result.parameters);
 				break;
 			default:
-
-			console.log(req.body.result);
-			console.log(req.body.result.parameters);
+			
 			console.log('No intents matched');
 		}
 
@@ -50,44 +48,44 @@ app.post('/fulfillment',function(req, res){
 
 function processPortfolioRequest(data) {
 	var result = {
-		"speech": "BusBook Service Fulfilled",
-		"displayText": "BusBook Service Fulfilled",
+		"speech": "Portfolio is returned from services",
+		"displayText": "Portfolio is returned from services",
 		"data": data,
 		"contextOut": [],
-		"source": "Greetings Service"
+		"source": "Portfolio Service"
 		};
 	return result;
 }
 
 function processHistoryRequest(data) {
 	var result = {
-		"speech": "BusBook Service Fulfilled",
-		"displayText": "BusBook Service Fulfilled",
+		"speech": "Portfolio History is returned from services",
+		"displayText": "Portfolio History is returned from services",
 		"data": data,
 		"contextOut": [],
-		"source": "Greetings Service"
+		"source": "Portfolio History Service"
 		};
 	return result;
 }
 
 function processAccountRequest(data) {
 	var result = {
-		"speech": "BusBook Service Fulfilled",
-		"displayText": "BusBook Service Fulfilled",
+		"speech": "Portfolio account is returned from services",
+		"displayText": "Portfolio account is returned from services",
 		"data": data,
 		"contextOut": [],
-		"source": "Greetings Service"
+		"source": "Portfolio account Service"
 		};
 	return result;
 }
 
 function processFaqRequest(data) {
 	var result = {
-		"speech": "BusBook Service Fulfilled",
-		"displayText": "BusBook Service Fulfilled",
+		"speech": "Portfolio FAQ is returned from services",
+		"displayText": "Portfolio FAQ is returned from services",
 		"data": data,
 		"contextOut": [],
-		"source": "Greetings Service"
+		"source": "Portfolio FAQ Service"
 		};
 	return result;
 }
