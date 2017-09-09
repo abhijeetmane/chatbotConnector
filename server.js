@@ -94,10 +94,13 @@ function processPortfolioRequest(data, res) {
     var result = {
         "speech": "Portfolio is returned from services",
         "displayText": "Portfolio is returned from services",
-        "data": data,
+        "messages": data,
         "contextOut": [],
         "source": "Portfolio Service"
     };
+
+    res.send(JSON.stringify(result));
+
     return result;
 }
 
@@ -120,7 +123,7 @@ function processHistoryRequest(data, res) {
         var result = {
             "speech": datareturn.name + " Portfolio History is returned from services",
             "displayText": "Portfolio History is returned from services",
-            "data": datareturn,
+            "messages": datareturn,
             "contextOut": [],
             "source": "Portfolio History Service"
         };
@@ -139,7 +142,7 @@ function processAccountRequest(data, res) {
     var result = {
         "speech": "Portfolio account is returned from services",
         "displayText": "Portfolio account is returned from services",
-        "data": data,
+        "messages": data,
         "contextOut": [],
         "source": "Portfolio account Service"
     };
@@ -161,7 +164,7 @@ function processFaqRequest(data, res) {
     var result = {
         "speech": "Portfolio FAQ is returned from services",
         "displayText": "Portfolio FAQ is returned from services",
-        "data": datareturn,
+        "messages": datareturn,
         "contextOut": [],
         "source": "Portfolio FAQ Service"
     };
