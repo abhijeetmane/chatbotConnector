@@ -160,11 +160,17 @@ function processFaqRequest(data, res) {
         'whatelse': 'I am working on more functionality'
     };
 
+    var messages=[
+        {
+          "type": 0,
+          "datareturn": datareturn
+        }
+      ]
 
     var result = {
         "speech": "Portfolio FAQ is returned from services",
         "displayText": "Portfolio FAQ is returned from services",
-        "messages": datareturn,
+        "messages": messages,
         "contextOut": [],
         "source": "Portfolio FAQ Service"
     };
