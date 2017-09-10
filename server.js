@@ -94,7 +94,7 @@ function processPortfolioRequest(data, res) {
     var result = {
         "speech": "Portfolio is returned from services",
         "displayText": "Portfolio is returned from services",
-        "data": data,
+        "data": JSON.stringify(data),
         "contextOut": [],
         "source": "Portfolio Service"
     };
@@ -120,7 +120,7 @@ function processHistoryRequest(data, res) {
         var result = {
             "speech": datareturn.name + " Portfolio History is returned from services",
             "displayText": "Portfolio History is returned from services",
-            "data": datareturn,
+            "data": JSON.stringify(datareturn),
             "contextOut": [],
             "source": "Portfolio History Service"
         };
@@ -139,44 +139,40 @@ function processAccountRequest(data, res) {
     var result = {
         "speech": "Portfolio account is returned from services",
         "displayText": "Portfolio account is returned from services",
-        "data": data,
+        "data": JSON.stringify(data),
         "contextOut": [],
         "source": "Portfolio account Service"
     };
-    console.log(result);
+        console.log(result);
 
-    res.send(JSON.stringify(result));
+        res.send(JSON.stringify(result));
     return result;
 }
 
 function processFaqRequest(data, res) {
 
-    // var datareturn = {
-    //     'botname': 'goku',
-    //     'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
-    //     'whatelse': 'I am working on more functionality'
-    // };
+    var datareturn = {
+        'botname': 'goku',
+        'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
+        'whatelse': 'I am working on more functionality'
+    };
 
 
     var result = {
         "speech": "Portfolio FAQ is returned from services",
         "displayText": "Portfolio FAQ is returned from services",
-        "data": {
-            'botname': 'goku',
-            'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
-            'whatelse': 'I am working on more functionality'
-        },
+        "data": JSON.stringify(datareturn),
         "contextOut": [],
         "source": "Portfolio FAQ Service"
     };
 
-    console.log(result);
+        console.log(result);
 
-    res.send(JSON.stringify(result));
+        res.send(JSON.stringify(result));
 
     return result;
 }
 //wait for a connection
 app.listen(process.env.PORT || 3000, function() {
-    console.log('Server is running. Point your browser to: http://localhost:3000');
+            console.log('Server is running. Point your browser to: http://localhost:3000');
 });
