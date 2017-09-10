@@ -94,13 +94,10 @@ function processPortfolioRequest(data, res) {
     var result = {
         "speech": "Portfolio is returned from services",
         "displayText": "Portfolio is returned from services",
-        "messages": data,
+        "data": data,
         "contextOut": [],
         "source": "Portfolio Service"
     };
-
-    res.send(JSON.stringify(result));
-
     return result;
 }
 
@@ -123,7 +120,7 @@ function processHistoryRequest(data, res) {
         var result = {
             "speech": datareturn.name + " Portfolio History is returned from services",
             "displayText": "Portfolio History is returned from services",
-            "messages": datareturn,
+            "data": datareturn,
             "contextOut": [],
             "source": "Portfolio History Service"
         };
@@ -142,7 +139,7 @@ function processAccountRequest(data, res) {
     var result = {
         "speech": "Portfolio account is returned from services",
         "displayText": "Portfolio account is returned from services",
-        "messages": data,
+        "data": data,
         "contextOut": [],
         "source": "Portfolio account Service"
     };
@@ -154,23 +151,21 @@ function processAccountRequest(data, res) {
 
 function processFaqRequest(data, res) {
 
-    var datareturn = {
-        'botname': 'goku',
-        'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
-        'whatelse': 'I am working on more functionality'
-    };
+    // var datareturn = {
+    //     'botname': 'goku',
+    //     'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
+    //     'whatelse': 'I am working on more functionality'
+    // };
 
-    var messages=[
-        {
-          "type": 0,
-          "datareturn": datareturn
-        }
-      ]
 
     var result = {
         "speech": "Portfolio FAQ is returned from services",
         "displayText": "Portfolio FAQ is returned from services",
-        "messages": messages,
+        "data": {
+            'botname': 'goku',
+            'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
+            'whatelse': 'I am working on more functionality'
+        },
         "contextOut": [],
         "source": "Portfolio FAQ Service"
     };
