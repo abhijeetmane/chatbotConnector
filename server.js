@@ -108,8 +108,9 @@ function processHistoryRequest(data, res) {
 
         var datareturn = {
             'name': '',
-            'portfolioName': 'Advisory Portfolio',
-            'assetAmount': '2000 Euro'
+            'portfolioDetails': 'Advisory Portfolio',
+            'richDataSrc': 'http://2010annualreport.edprenovaveis.pt/images/economic_portfolio_graph1.png',
+            'speechText': 'List of available portfolios'
         };
 
         snapshot.forEach(function(childSnapshot) {
@@ -118,7 +119,7 @@ function processHistoryRequest(data, res) {
         });
 
         var result = {
-            "speech": datareturn.name + " Portfolio History is returned from services",
+            "speech": JSON.stringify(datareturn),
             "displayText": "Portfolio History is returned from services",
             "data": JSON.stringify(datareturn),
             "contextOut": [],
@@ -153,8 +154,9 @@ function processFaqRequest(data, res) {
 
     var datareturn = {
         'botname': 'goku',
-        'features': ['portfolio', 'virtual credit card', 'questions', 'incident requests'],
-        'whatelse': 'I am working on more functionality'
+        'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
+        'whatelse': 'I am working on more functionality',
+        'speechText': 'I can help you with you this things'
     };
 
 
