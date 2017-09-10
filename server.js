@@ -143,9 +143,9 @@ function processAccountRequest(data, res) {
         "contextOut": [],
         "source": "Portfolio account Service"
     };
-        console.log(result);
+    console.log(result);
 
-        res.send(JSON.stringify(result));
+    res.send(JSON.stringify(result));
     return result;
 }
 
@@ -166,13 +166,13 @@ function processFaqRequest(data, res) {
         "source": "Portfolio FAQ Service"
     };
 
-        console.log(result);
+    console.log(result);
 
-        res.send(JSON.stringify(result));
+    res.send(JSON.stringify(result));
 
     return result;
 }
 //wait for a connection
 app.listen(process.env.PORT || 3000, function() {
-            console.log('Server is running. Point your browser to: http://localhost:3000');
+    console.log('Server is running. Point your browser to: http://localhost:3000');
 });
