@@ -159,10 +159,10 @@ function processFaqRequest(data, res) {
 
 
     var result = {
-        "speech": JSON.stringify(datareturn),
+        "speech": "Portfolio FAQ is returned from services",
         "displayText": "Portfolio FAQ is returned from services",
         "data": JSON.stringify(datareturn),
-        "contextOut": ['hello faq'],
+        "contextOut": [],
         "source": "Portfolio FAQ Service"
     };
 
