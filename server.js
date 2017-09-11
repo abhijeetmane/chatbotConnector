@@ -64,7 +64,8 @@ app.use(express.static(path.join(__dirname, 'www')));
 app.post('/fulfillment', function(req, res) {
     var resultVal = {};
     res.setHeader('Content-Type', 'application/json');
-
+    console.log('req.body.result');
+    console.log(req.body.result);
     switch (req.body.result.action) {
 
         case 'portfolio':
