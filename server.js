@@ -158,7 +158,7 @@ function processWelcomeRequest(data, contexts, res) {
 
 
     console.log('processWelcomeRequest');
-    console.log(data);
+    console.log(contexts);
     var datareturn = {
         'botname': 'goku',
         'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
