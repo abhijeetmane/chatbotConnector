@@ -79,6 +79,9 @@ app.post('/fulfillment', function(req, res) {
         case 'faq':
             resultVal = processFaqRequest(req.body.result.parameters, res);
             break;
+        case 'welcome':
+            resultVal = processWelcomeRequest(req.body.result.parameters, res);
+            break;
         default:
 
             console.log('No intents matched');
@@ -150,13 +153,40 @@ function processAccountRequest(data, res) {
     return result;
 }
 
+function processWelcomeRequest(data, res) {
+    console.log('processWelcomeRequest');
+    console.log(data);
+    var datareturn = {
+        'botname': 'goku',
+        'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
+        'speechText': 'I can help you with you these things',
+        'username':''
+    };
+
+
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Welcome is returned from services",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Welcome Service"
+    };
+
+    console.log(result);
+
+    res.send(JSON.stringify(result));
+
+    return result;
+}
+
+
 function processFaqRequest(data, res) {
 
     var datareturn = {
         'botname': 'goku',
         'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
         'whatelse': 'I am working on more functionality',
-        'speechText': 'I can help you with you this things'
+        'speechText': 'I can help you with you these things'
     };
 
 
