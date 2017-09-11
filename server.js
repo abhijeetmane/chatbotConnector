@@ -81,7 +81,7 @@ app.post('/fulfillment', function(req, res) {
             resultVal = processFaqRequest(req.body.result.parameters, res);
             break;
         case 'welcome':
-            resultVal = processWelcomeRequest(req.body.result.parameters, res);
+            resultVal = processWelcomeRequest(req.body.result.parameters, req.body.result.contexts,res);
             break;
         default:
 
@@ -154,14 +154,16 @@ function processAccountRequest(data, res) {
     return result;
 }
 
-function processWelcomeRequest(data, res) {
+function processWelcomeRequest(data, contexts, res) {
+
+
     console.log('processWelcomeRequest');
     console.log(data);
     var datareturn = {
         'botname': 'goku',
         'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
         'speechText': 'I can help you with you these things',
-        'username':''
+        'username':contexts[0].name
     };
 
 
