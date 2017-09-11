@@ -163,7 +163,7 @@ function processWelcomeRequest(data, contexts, res) {
         'botname': 'goku',
         'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
         'speechText': 'I can help you with you these things',
-        'username':contexts[0].name.name
+        'username':JSON.parse(contexts[0].name).name
     };
 
 
