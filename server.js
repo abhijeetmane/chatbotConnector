@@ -28,7 +28,7 @@ let getFireName = (callback) => {
     /* Code for reading from  firebase database */
 
     console.log('inside getFireName');
-    return firebase.database().ref('/').on('value', callback);
+    // return firebase.database().ref('/').on('value', callback);
 
     /* Code for loadeing data once which isn't expected to change frequently */
     // firebase.database().ref('/').once('value').then(function(snapshot) {
@@ -68,11 +68,11 @@ app.post('/fulfillment', function(req, res) {
     console.log(req.body.result);
     switch (req.body.result.action) {
 
-        case 'portfolio':
-            resultVal = processPortfolioRequest(req.body.result.parameters, res);
+        case 'portfoliolist':
+            resultVal = processPortfolioRequest(req.body.result.parameters, req.body.result.contexts,res);
             break;
         case 'history':
-            resultVal = processHistoryRequest(req.body.result.parameters, res);
+            resultVal = processHistoryRequest(req.body.result.parameters, req.body.result.contexts,res);
             break;
         case 'account':
             resultVal = processAccountRequest(req.body.result.parameters, res);
@@ -94,33 +94,23 @@ app.post('/fulfillment', function(req, res) {
     console.log('request is : ', req.body.result.action, req.body.result.parameters);
 });
 
-function processPortfolioRequest(data, res) {
-    var result = {
-        "speech": "Portfolio is returned from services",
-        "displayText": "Portfolio is returned from services",
-        "data": JSON.stringify(data),
-        "contextOut": [],
-        "source": "Portfolio Service"
-    };
-    return result;
-}
 
-function processHistoryRequest(data, res) {
+function processPortfolioRequest(data, contexts, res) {
 
-    console.log('inside history');
-    var callback = function(snapshot) {
+    console.log('inside processPortfolioRequest');
 
+    console.log(contexts);
         var datareturn = {
-            'name': '',
-            'portfolioDetails': 'Advisory Portfolio',
-            'richDataSrc': 'http://2010annualreport.edprenovaveis.pt/images/economic_portfolio_graph1.png',
-            'speechText': 'List of available portfolios'
+            // 'username':JSON.parse(contexts[0].name).name,
+            'username':'abhijeeet',
+            'portfoliolist': [
+            {
+                "portfolioslist": ["12336745", "12336745", "12336745"],
+                "dataType": "clickablelist"
+            }],
+            'speechText': 'Please find list of available portfolios'
         };
-
-        snapshot.forEach(function(childSnapshot) {
-            console.log('name =' + childSnapshot.val());
-            datareturn.name = childSnapshot.val();
-        });
+      
 
         var result = {
             "speech": JSON.stringify(datareturn),
@@ -132,12 +122,36 @@ function processHistoryRequest(data, res) {
         console.log(result);
 
         res.send(JSON.stringify(result));
-    };
+        return result;
+}
 
+function processHistoryRequest(data, contexts,res) {
 
-    return getFireName(callback);
+    console.log('inside history');
 
+    console.log(contexts);
+    console.log(contexts[0].name);
 
+        var datareturn = {
+            // 'username':JSON.parse(contexts[0].name).name,
+            'username':'abhijeeet',
+            'portfolioDetails': 'Advisory Portfolio',
+            'richDataSrc': 'http://2010annualreport.edprenovaveis.pt/images/economic_portfolio_graph1.png',
+            'speechText': 'List of available portfolios'
+        };
+
+        var result = {
+            "speech": JSON.stringify(datareturn),
+            "displayText": "Portfolio History is returned from services",
+            "data": JSON.stringify(datareturn),
+            "contextOut": [],
+            "source": "Portfolio History Service"
+        };
+        console.log(result);
+
+        res.send(JSON.stringify(result));
+        return result;
+    
 }
 
 function processAccountRequest(data, res) {
@@ -163,7 +177,8 @@ function processWelcomeRequest(data, contexts, res) {
         'botname': 'goku',
         'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
         'speechText': 'I can help you with you these things',
-        'username':JSON.parse(contexts[0].name).name
+        // 'username':JSON.parse(contexts[0].name).name
+        'username':'abhijeeet'
     };
 
 
