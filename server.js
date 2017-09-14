@@ -69,10 +69,10 @@ app.post('/fulfillment', function(req, res) {
     switch (req.body.result.action) {
 
         case 'portfoliolist':
-            resultVal = processPortfolioRequest(req.body.result.parameters, req.body.result.contexts,res);
+            resultVal = processPortfolioRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
         case 'history':
-            resultVal = processHistoryRequest(req.body.result.parameters, req.body.result.contexts,res);
+            resultVal = processHistoryRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
         case 'account':
             resultVal = processAccountRequest(req.body.result.parameters, res);
@@ -81,7 +81,7 @@ app.post('/fulfillment', function(req, res) {
             resultVal = processFaqRequest(req.body.result.parameters, res);
             break;
         case 'welcome':
-            resultVal = processWelcomeRequest(req.body.result.parameters, req.body.result.contexts,res);
+            resultVal = processWelcomeRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
         default:
 
@@ -100,58 +100,144 @@ function processPortfolioRequest(data, contexts, res) {
     console.log('inside processPortfolioRequest');
 
     console.log(contexts);
-        var datareturn = {
-            // 'username':JSON.parse(contexts[0].name).name,
-            'username':'abhijeeet',
-            'portfoliolist': [
-            {
-                "portfolioslist": ["12336745", "12336746", "12336747"],
-                "dataType": "clickablelist"
+
+    var portfolioDtl = [{
+            "pid": "12336745",
+            "dataType": "checkboxText",
+            "total": 1024061.97,
+            "growthYTD": -21149.42,
+            "prfnPercent": -3.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "7",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
             }],
-            'speechText': 'Please find list of available portfolios'
-        };
-      
+            "ownership": false
 
-        var result = {
-            "speech": JSON.stringify(datareturn),
-            "displayText": "Portfolio History is returned from services",
-            "data": JSON.stringify(datareturn),
-            "contextOut": [],
-            "source": "Portfolio History Service"
-        };
-        console.log(result);
+        },
+        {
+            "pid": "394587",
+            "total": 12348.97,
+            "growthYTD": -89332.42,
+            "prfnPercent": -36.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "7",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": true
+        },
+        {
+            "pid": "12336745",
+            "totalAmount": 2432.97,
+            "growthYTD": -35.42,
+            "prfnPercent": -43.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "low",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": false
+        }
+    ];
+    var datareturn = {
+        // 'username':JSON.parse(contexts[0].name).name,
+        'username': 'abhijeet',
+        'portfoliolist': [{
+            "portfolioslist": ["12336745", "12336746", "12336747"],
+            "dataType": "clickablelist"
+        }],
+        "portfolioDtl": portfolioDtl,
+        'speechText': 'Please find list of available portfolios'
+    };
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Portfolio History is returned from services",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio History Service"
+    };
+    console.log(result);
 
-        res.send(JSON.stringify(result));
-        return result;
+    res.send(JSON.stringify(result));
+    return result;
 }
 
-function processHistoryRequest(data, contexts,res) {
+function processHistoryRequest(data, contexts, res) {
 
     console.log('inside history');
 
     console.log(contexts);
     console.log(contexts[0].name);
 
-        var datareturn = {
-            // 'username':JSON.parse(contexts[0].name).name,
-            'username':'abhijeeet',
-            'portfolioDetails': 'Advisory Portfolio',
-            'richDataSrc': 'http://2010annualreport.edprenovaveis.pt/images/economic_portfolio_graph1.png',
-            'speechText': 'List of available portfolios'
-        };
+    var datareturn = {
+        // 'username':JSON.parse(contexts[0].name).name,
+        'username': 'abhijeeet',
+        'portfolioDetails': 'Advisory Portfolio',
+        'richDataSrc': 'http://2010annualreport.edprenovaveis.pt/images/economic_portfolio_graph1.png',
+        'speechText': 'List of available portfolios'
+    };
 
-        var result = {
-            "speech": JSON.stringify(datareturn),
-            "displayText": "Portfolio History is returned from services",
-            "data": JSON.stringify(datareturn),
-            "contextOut": [],
-            "source": "Portfolio History Service"
-        };
-        console.log(result);
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Portfolio History is returned from services",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio History Service"
+    };
+    console.log(result);
 
-        res.send(JSON.stringify(result));
-        return result;
-    
+    res.send(JSON.stringify(result));
+    return result;
+
 }
 
 function processAccountRequest(data, res) {
@@ -178,7 +264,7 @@ function processWelcomeRequest(data, contexts, res) {
         'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
         'speechText': 'I can help you with you these things',
         // 'username':JSON.parse(contexts[0].name).name
-        'username':'abhijeeet'
+        'username': 'abhijeeet'
     };
 
 
