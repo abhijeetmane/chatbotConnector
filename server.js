@@ -105,7 +105,7 @@ function processPortfolioRequest(data, contexts, res) {
             'username':'abhijeeet',
             'portfoliolist': [
             {
-                "portfolioslist": ["12336745", "12336745", "12336745"],
+                "portfolioslist": ["12336745", "12336746", "12336747"],
                 "dataType": "clickablelist"
             }],
             'speechText': 'Please find list of available portfolios'
