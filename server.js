@@ -83,7 +83,7 @@ app.post('/fulfillment', function(req, res) {
         case 'welcome':
             resultVal = processWelcomeRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
-        case 'getportfoliodetails':
+        case 'portfolio.portfoliodetails':
             resultVal = processPortfolioDtlRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
         default:
