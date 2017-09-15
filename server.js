@@ -618,37 +618,7 @@ function processAccountRequest(data, res) {
 
 function processWelcomeRequest(data, contexts, res) {
 
-
-    console.log('processWelcomeRequest');
-    console.log(contexts);
-    var datareturn = {
-        'botname': 'goku',
-        'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
-        'speechText': 'I can help you with you these things',
-        // 'username':JSON.parse(contexts[0].name).name
-        'username': 'abhijeeet'
-    };
-
-
-    var result = {
-        "speech": JSON.stringify(datareturn),
-        "displayText": "Welcome is returned from services",
-        "data": JSON.stringify(datareturn),
-        "contextOut": [],
-        "source": "Welcome Service"
-    };
-
-    console.log(result);
-
-    res.send(JSON.stringify(result));
-
-    return result;
-}
-
-
-function processFaqRequest(data, res) {
-
-    var datareturn = {
+var datareturn = {
         'botname': 'Dobby',
         'username': 'abhijeet',
         'botFeatures': {
@@ -664,6 +634,32 @@ function processFaqRequest(data, res) {
         "data": JSON.stringify(datareturn),
         "contextOut": [],
         "source": "Dobby welcomes you"
+    };
+
+    console.log(result);
+
+    res.send(JSON.stringify(result));
+
+    return result;
+}
+
+
+function processFaqRequest(data, res) {
+
+    var datareturn = {
+        'botname': 'Dobby',
+        'features': ['Portfolio Management', 'Virtual Credit card'],
+        'whatelse': 'I am working on more functionality',
+        'speechText': 'I can help you with you these things'
+    };
+
+
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Portfolio FAQ is returned from services",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio FAQ Service"
     };
 
     console.log(result);
