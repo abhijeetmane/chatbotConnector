@@ -302,6 +302,9 @@ function processAssetDtlRequest(data, contexts, res) {
 
     console.log(contexts[0].parameters);
     var selectedportfolioID = contexts[0].parameters.number;
+    if(!contexts[0].parameters.number){
+        selectedportfolioID=contexts[0].parameters.defaultNumber;
+    }
     var portfolioAssetDtl;
 
     for (var i = 0; i < portfolioDetails.length; i++) {
