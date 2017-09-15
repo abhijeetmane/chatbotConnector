@@ -1,6 +1,95 @@
 //require the express nodejs module
 // import * as firebase from 'firebase';
 
+var portfolioDetails = [{
+        "pid": "12336745",
+        "dataType": "checkboxText",
+        "total": 1024061.97,
+        "growthYTD": -21149.42,
+        "prfnPercent": -3.10,
+        "managementType": "Dynamik",
+        "pfOwner": "Agen Äkbgfeend",
+        "money": "EUR",
+        "riskProfile": "7",
+        "type": "Discretionary",
+        "assetClasses": [{
+            "assetClass": "assetClass1",
+            "amount": 21.43
+        }, {
+            "assetClass": "assetClass2",
+            "amount": 23.42
+        }, {
+            "assetClass": "assetClass3",
+            "amount": 19.31
+        }, {
+            "assetClass": "assetClass4",
+            "amount": 17.42
+        }, {
+            "assetClass": "assetClass5",
+            "amount": 20.00
+        }],
+        "ownership": false
+
+    },
+    {
+        "pid": "12336746",
+        "total": 12348.97,
+        "growthYTD": -89332.42,
+        "prfnPercent": -36.10,
+        "managementType": "Dynamik",
+        "pfOwner": "Agen Äkbgfeend",
+        "money": "EUR",
+        "riskProfile": "7",
+        "type": "Discretionary",
+        "assetClasses": [{
+            "assetClass": "assetClass1",
+            "amount": 21.43
+        }, {
+            "assetClass": "assetClass2",
+            "amount": 23.42
+        }, {
+            "assetClass": "assetClass3",
+            "amount": 19.31
+        }, {
+            "assetClass": "assetClass4",
+            "amount": 17.42
+        }, {
+            "assetClass": "assetClass5",
+            "amount": 20.00
+        }],
+        "ownership": true
+    },
+    {
+        "pid": "12336747",
+        "totalAmount": 2432.97,
+        "growthYTD": -35.42,
+        "prfnPercent": -43.10,
+        "managementType": "Dynamik",
+        "pfOwner": "Agen Äkbgfeend",
+        "money": "EUR",
+        "riskProfile": "low",
+        "type": "Discretionary",
+        "assetClasses": [{
+            "assetClass": "assetClass1",
+            "amount": 21.43
+        }, {
+            "assetClass": "assetClass2",
+            "amount": 23.42
+        }, {
+            "assetClass": "assetClass3",
+            "amount": 19.31
+        }, {
+            "assetClass": "assetClass4",
+            "amount": 17.42
+        }, {
+            "assetClass": "assetClass5",
+            "amount": 20.00
+        }],
+        "ownership": false
+    }
+];
+
+
 var firebase = require('firebase'),
 
     express = require('express'),
@@ -74,8 +163,8 @@ app.post('/fulfillment', function(req, res) {
         case 'history':
             resultVal = processHistoryRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
-        case 'account':
-            resultVal = processAccountRequest(req.body.result.parameters, res);
+        case 'portfolio.compareportfolio':
+            resultVal = comparePortfolios(req.body.result.parameters, req.body.result.contexts, res);
             break;
         case 'faq':
             resultVal = processFaqRequest(req.body.result.parameters, res);
@@ -107,103 +196,15 @@ function processPortfolioDtlRequest(data, contexts, res) {
     console.log('inside processPortfolioDtlRequest');
 
     console.log(contexts[0].parameters);
-    var selectedportfolioID=contexts[0].parameters.number;
+    var selectedportfolioID = contexts[0].parameters.number;
     var portfolioDtl;
 
-    var portfolioDetails = [{
-            "pid": "12336745",
-            "dataType": "checkboxText",
-            "total": 1024061.97,
-            "growthYTD": -21149.42,
-            "prfnPercent": -3.10,
-            "managementType": "Dynamik",
-            "pfOwner": "Agen Äkbgfeend",
-            "money": "EUR",
-            "riskProfile": "7",
-            "type": "Discretionary",
-            "assetClasses": [{
-                "assetClass": "assetClass1",
-                "amount": 21.43
-            }, {
-                "assetClass": "assetClass2",
-                "amount": 23.42
-            }, {
-                "assetClass": "assetClass3",
-                "amount": 19.31
-            }, {
-                "assetClass": "assetClass4",
-                "amount": 17.42
-            }, {
-                "assetClass": "assetClass5",
-                "amount": 20.00
-            }],
-            "ownership": false
 
-        },
-        {
-            "pid": "12336746",
-            "total": 12348.97,
-            "growthYTD": -89332.42,
-            "prfnPercent": -36.10,
-            "managementType": "Dynamik",
-            "pfOwner": "Agen Äkbgfeend",
-            "money": "EUR",
-            "riskProfile": "7",
-            "type": "Discretionary",
-            "assetClasses": [{
-                "assetClass": "assetClass1",
-                "amount": 21.43
-            }, {
-                "assetClass": "assetClass2",
-                "amount": 23.42
-            }, {
-                "assetClass": "assetClass3",
-                "amount": 19.31
-            }, {
-                "assetClass": "assetClass4",
-                "amount": 17.42
-            }, {
-                "assetClass": "assetClass5",
-                "amount": 20.00
-            }],
-            "ownership": true
-        },
-        {
-            "pid": "12336747",
-            "totalAmount": 2432.97,
-            "growthYTD": -35.42,
-            "prfnPercent": -43.10,
-            "managementType": "Dynamik",
-            "pfOwner": "Agen Äkbgfeend",
-            "money": "EUR",
-            "riskProfile": "low",
-            "type": "Discretionary",
-            "assetClasses": [{
-                "assetClass": "assetClass1",
-                "amount": 21.43
-            }, {
-                "assetClass": "assetClass2",
-                "amount": 23.42
-            }, {
-                "assetClass": "assetClass3",
-                "amount": 19.31
-            }, {
-                "assetClass": "assetClass4",
-                "amount": 17.42
-            }, {
-                "assetClass": "assetClass5",
-                "amount": 20.00
-            }],
-            "ownership": false
-        }
-    ];
+    for (var i = 0; i < portfolioDetails.length; i++) {
+        console.log(portfolioDetails.length + ' ' + i);
 
-
-    for(var i=0; i<portfolioDetails.length; i++) {
-        console.log(portfolioDetails.length+' '+i);
-
-        if(portfolioDetails[i].pid == selectedportfolioID) {
-            portfolioDtl= portfolioDetails[i];
+        if (portfolioDetails[i].pid == selectedportfolioID) {
+            portfolioDtl = portfolioDetails[i];
         }
 
     }
@@ -229,12 +230,78 @@ function processPortfolioDtlRequest(data, contexts, res) {
 
 
 
+function comparePortfolios(data, contexts, res) {
+
+    console.log('inside comparePortfolios');
+
+    console.log(contexts[0].parameters);
+    var selectedportfolioID1 = contexts[0].parameters.number;
+    var selectedportfolioID2 = contexts[0].parameters.number1;
+    var portfolioAssetDtl;
+
+    var assetsArray1 = [];
+    var assetsArray2 = [];
+    var assetsArray = [];
+
+    for (var i = 0; i < portfolioDetails.length; i++) {
+        console.log(portfolioDetails.length + ' ' + i);
+
+        if (portfolioDetails[i].pid == selectedportfolioID1) {
+
+            for (var j = 0; j < portfolioDetails[i].assetClasses.length; j++) {
+                assetsArray1.push(portfolioDetails[i].assetClasses[j].amount);
+
+            }
+
+        }
+
+        if (portfolioDetails[i].pid == selectedportfolioID2) {
+
+            for (var k = 0; k < portfolioDetails[i].assetClasses.length; k++) {
+                assetsArray2.push(portfolioDetails[i].assetClasses[k].amount);
+
+            }
+
+        }
+
+    }
+
+    assetsArray.push(assetsArray1);
+    assetsArray.push(assetsArray2);
+    console.log(assetsArray);
+
+    var datareturn = {
+        // 'username':JSON.parse(contexts[0].name).name,
+        'username': 'abhijeet',
+        'comparedArray': {
+            "data": assetsArray,
+            "dataType": "performanceGraph",
+            "series": [selectedportfolioID1, selectedportfolioID2],
+            "labels": ["Liquidität", "Rentenanlagen", "Aktienanlagen", "Alternative Investments", "Futures und Optionen"]
+        },
+
+        'speechText': 'Please find comparision Details of your portfolios'
+    };
+
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Please find comparision Details of your portfolios",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio History Service"
+    };
+    console.log(result);
+
+    res.send(JSON.stringify(result));
+    return result;
+}
+
 function processAssetDtlRequest(data, contexts, res) {
 
     console.log('inside processPortfolioDtlRequest');
 
     console.log(contexts[0].parameters);
-    var selectedportfolioID=contexts[0].parameters.number;
+    var selectedportfolioID = contexts[0].parameters.number;
     var portfolioAssetDtl;
 
     var portfolioDetails = [{
@@ -326,11 +393,11 @@ function processAssetDtlRequest(data, contexts, res) {
     ];
 
 
-    for(var i=0; i<portfolioDetails.length; i++) {
-        console.log(portfolioDetails.length+' '+i);
+    for (var i = 0; i < portfolioDetails.length; i++) {
+        console.log(portfolioDetails.length + ' ' + i);
 
-        if(portfolioDetails[i].pid == selectedportfolioID) {
-            portfolioAssetDtl= portfolioDetails[i].assetClasses;
+        if (portfolioDetails[i].pid == selectedportfolioID) {
+            portfolioAssetDtl = portfolioDetails[i].assetClasses;
         }
 
     }
