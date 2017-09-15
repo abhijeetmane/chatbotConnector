@@ -377,10 +377,10 @@ function processPortfoliocheckboxRequest(data, contexts, res) {
     var datareturn = {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
-        'portfoliocheckboxlist': [{
+        'portfoliocheckboxlist': {
             "multOptions": ["12336745", "12336746", "12336747"],
             "dataType": "checkboxText"
-        }],
+        },
         // "portfolioDtl": portfolioDtl,
         'speechText': 'Please find list of available portfolios'
     };
