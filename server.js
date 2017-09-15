@@ -132,7 +132,7 @@ function processPortfolioRequest(data, contexts, res) {
 
         },
         {
-            "pid": "394587",
+            "pid": "12336746",
             "total": 12348.97,
             "growthYTD": -89332.42,
             "prfnPercent": -36.10,
@@ -160,7 +160,7 @@ function processPortfolioRequest(data, contexts, res) {
             "ownership": true
         },
         {
-            "pid": "12336745",
+            "pid": "12336747",
             "totalAmount": 2432.97,
             "growthYTD": -35.42,
             "prfnPercent": -43.10,
