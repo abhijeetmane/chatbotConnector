@@ -83,6 +83,9 @@ app.post('/fulfillment', function(req, res) {
         case 'welcome':
             resultVal = processWelcomeRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
+        case 'getportfoliodetails':
+            resultVal = processPortfolioDtlRequest(req.body.result.parameters, req.body.result.contexts, res);
+            break;
         default:
 
             console.log('No intents matched');
@@ -93,6 +96,125 @@ app.post('/fulfillment', function(req, res) {
     //debugging output for the terminal
     console.log('request is : ', req.body.result.action, req.body.result.parameters);
 });
+
+
+
+function processPortfolioDtlRequest(data, contexts, res) {
+
+    console.log('inside processPortfolioDtlRequest');
+
+    console.log(contexts);
+
+    var portfolioDtl = [{
+            "pid": "12336745",
+            "dataType": "checkboxText",
+            "total": 1024061.97,
+            "growthYTD": -21149.42,
+            "prfnPercent": -3.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "7",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": false
+
+        },
+        {
+            "pid": "12336746",
+            "total": 12348.97,
+            "growthYTD": -89332.42,
+            "prfnPercent": -36.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "7",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": true
+        },
+        {
+            "pid": "12336747",
+            "totalAmount": 2432.97,
+            "growthYTD": -35.42,
+            "prfnPercent": -43.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "low",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": false
+        }
+    ];
+    var datareturn = {
+        // 'username':JSON.parse(contexts[0].name).name,
+        'username': 'abhijeet',
+        'portfoliolist': [{
+            "portfolioslist": ["12336745", "12336746", "12336747"],
+            "dataType": "clickablelist"
+        }],
+        "portfolioDtl": portfolioDtl,
+        'speechText': 'Please find list of available portfolios'
+    };
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Portfolio History is returned from services",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio History Service"
+    };
+    console.log(result);
+
+    res.send(JSON.stringify(result));
+    return result;
+}
+
 
 
 function processPortfolioRequest(data, contexts, res) {
