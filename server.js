@@ -207,6 +207,7 @@ function processPortfolioDtlRequest(data, contexts, res) {
         "displayText": "Portfolio History is returned from services",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
+        "resetContexts":true,
         "source": "Portfolio History Service"
     };
     console.log(result);
@@ -325,6 +326,7 @@ function processPortfolioRequest(data, contexts, res) {
         "displayText": "Portfolio History is returned from services",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
+        "resetContexts":true,
         "source": "Portfolio History Service"
     };
     console.log(result);
