@@ -86,6 +86,9 @@ app.post('/fulfillment', function(req, res) {
         case 'portfolio.portfoliodetails':
             resultVal = processPortfolioDtlRequest(req.body.result.parameters, req.body.result.contexts, res);
             break;
+        case 'portfolio.assetdetails':
+            resultVal = processAssetDtlRequest(req.body.result.parameters, req.body.result.contexts, res);
+            break;
         default:
 
             console.log('No intents matched');
@@ -226,99 +229,141 @@ function processPortfolioDtlRequest(data, contexts, res) {
 
 
 
+function processAssetDtlRequest(data, contexts, res) {
+
+    console.log('inside processPortfolioDtlRequest');
+
+    console.log(contexts[0].parameters);
+    var selectedportfolioID=contexts[0].parameters.number;
+    var portfolioAssetDtl;
+
+    var portfolioDetails = [{
+            "pid": "12336745",
+            "dataType": "checkboxText",
+            "total": 1024061.97,
+            "growthYTD": -21149.42,
+            "prfnPercent": -3.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "7",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": false
+
+        },
+        {
+            "pid": "12336746",
+            "total": 12348.97,
+            "growthYTD": -89332.42,
+            "prfnPercent": -36.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "7",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": true
+        },
+        {
+            "pid": "12336747",
+            "totalAmount": 2432.97,
+            "growthYTD": -35.42,
+            "prfnPercent": -43.10,
+            "managementType": "Dynamik",
+            "pfOwner": "Agen Äkbgfeend",
+            "money": "EUR",
+            "riskProfile": "low",
+            "type": "Discretionary",
+            "assetClasses": [{
+                "assetClass": "assetClass1",
+                "amount": 21.43
+            }, {
+                "assetClass": "assetClass2",
+                "amount": 23.42
+            }, {
+                "assetClass": "assetClass3",
+                "amount": 19.31
+            }, {
+                "assetClass": "assetClass4",
+                "amount": 17.42
+            }, {
+                "assetClass": "assetClass5",
+                "amount": 20.00
+            }],
+            "ownership": false
+        }
+    ];
+
+
+    for(var i=0; i<portfolioDetails.length; i++) {
+        console.log(portfolioDetails.length+' '+i);
+
+        if(portfolioDetails[i].pid == selectedportfolioID) {
+            portfolioAssetDtl= portfolioDetails[i].assetClasses;
+        }
+
+    }
+
+    var datareturn = {
+        // 'username':JSON.parse(contexts[0].name).name,
+        'username': 'abhijeet',
+        'portfoliolist': {
+            "chartData": portfolioAssetDtl,
+            "dataType": "donutChart"
+        },
+        'speechText': 'Please find Asset Details of your portfolio'
+    };
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Please find Details of your portfolios",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio History Service"
+    };
+    console.log(result);
+
+    res.send(JSON.stringify(result));
+    return result;
+}
+
+
 function processPortfolioRequest(data, contexts, res) {
 
     console.log('inside processPortfolioRequest');
 
     console.log(contexts[0].parameters);
 
-    // var portfolioDtl = [{
-    //         "pid": "12336745",
-    //         "dataType": "checkboxText",
-    //         "total": 1024061.97,
-    //         "growthYTD": -21149.42,
-    //         "prfnPercent": -3.10,
-    //         "managementType": "Dynamik",
-    //         "pfOwner": "Agen Äkbgfeend",
-    //         "money": "EUR",
-    //         "riskProfile": "7",
-    //         "type": "Discretionary",
-    //         "assetClasses": [{
-    //             "assetClass": "assetClass1",
-    //             "amount": 21.43
-    //         }, {
-    //             "assetClass": "assetClass2",
-    //             "amount": 23.42
-    //         }, {
-    //             "assetClass": "assetClass3",
-    //             "amount": 19.31
-    //         }, {
-    //             "assetClass": "assetClass4",
-    //             "amount": 17.42
-    //         }, {
-    //             "assetClass": "assetClass5",
-    //             "amount": 20.00
-    //         }],
-    //         "ownership": false
-
-    //     },
-    //     {
-    //         "pid": "12336746",
-    //         "total": 12348.97,
-    //         "growthYTD": -89332.42,
-    //         "prfnPercent": -36.10,
-    //         "managementType": "Dynamik",
-    //         "pfOwner": "Agen Äkbgfeend",
-    //         "money": "EUR",
-    //         "riskProfile": "7",
-    //         "type": "Discretionary",
-    //         "assetClasses": [{
-    //             "assetClass": "assetClass1",
-    //             "amount": 21.43
-    //         }, {
-    //             "assetClass": "assetClass2",
-    //             "amount": 23.42
-    //         }, {
-    //             "assetClass": "assetClass3",
-    //             "amount": 19.31
-    //         }, {
-    //             "assetClass": "assetClass4",
-    //             "amount": 17.42
-    //         }, {
-    //             "assetClass": "assetClass5",
-    //             "amount": 20.00
-    //         }],
-    //         "ownership": true
-    //     },
-    //     {
-    //         "pid": "12336747",
-    //         "totalAmount": 2432.97,
-    //         "growthYTD": -35.42,
-    //         "prfnPercent": -43.10,
-    //         "managementType": "Dynamik",
-    //         "pfOwner": "Agen Äkbgfeend",
-    //         "money": "EUR",
-    //         "riskProfile": "low",
-    //         "type": "Discretionary",
-    //         "assetClasses": [{
-    //             "assetClass": "assetClass1",
-    //             "amount": 21.43
-    //         }, {
-    //             "assetClass": "assetClass2",
-    //             "amount": 23.42
-    //         }, {
-    //             "assetClass": "assetClass3",
-    //             "amount": 19.31
-    //         }, {
-    //             "assetClass": "assetClass4",
-    //             "amount": 17.42
-    //         }, {
-    //             "assetClass": "assetClass5",
-    //             "amount": 20.00
-    //         }],
-    //         "ownership": false
-    //     }
-    // ];
     var datareturn = {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
