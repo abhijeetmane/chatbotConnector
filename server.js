@@ -228,7 +228,7 @@ function vcShowAccounts(data, res) {
         "displayText": "Please find Details of your portfolios",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "please find the accounts"
     };
     console.log(result);
 
@@ -280,7 +280,7 @@ function vcAccountBalance(data, res) {
         "displayText": "Please find Details of your portfolios",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "please find the accounts"
     };
     console.log(result);
 
@@ -319,7 +319,7 @@ function vcShowVcCreditCard(data, res) {
         "displayText": JSON.stringify(datareturn),
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "please find the accounts"
     };
     console.log(result);
 
@@ -649,19 +649,21 @@ function processWelcomeRequest(data, contexts, res) {
 function processFaqRequest(data, res) {
 
     var datareturn = {
-        'botname': 'Doby',
-        'features': ['Portfolio Management', 'Virtual Credit card'],
-        'whatelse': 'I am working on more functionality',
-        'speechText': 'I can help you with you these things'
+        'botname': 'Dobby',
+        'username': 'abhijeet',
+        'botFeatures': {
+            "featurelist": ['Portfolio Management', 'Virtual Credit card'],
+            "dataType": "clickablelist"
+        },
+        // "portfolioDtl": portfolioDtl,
+        'speechText': 'Dobby welcomes you'
     };
-
-
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Portfolio FAQ is returned from services",
+        "displayText": "Dobby welcomes you",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio FAQ Service"
+        "source": "Dobby welcomes you"
     };
 
     console.log(result);
