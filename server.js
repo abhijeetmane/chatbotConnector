@@ -304,95 +304,6 @@ function processAssetDtlRequest(data, contexts, res) {
     var selectedportfolioID = contexts[0].parameters.number;
     var portfolioAssetDtl;
 
-    var portfolioDetails = [{
-            "pid": "12336745",
-            "dataType": "checkboxText",
-            "total": 1024061.97,
-            "growthYTD": -21149.42,
-            "prfnPercent": -3.10,
-            "managementType": "Dynamik",
-            "pfOwner": "Agen Äkbgfeend",
-            "money": "EUR",
-            "riskProfile": "7",
-            "type": "Discretionary",
-            "assetClasses": [{
-                "assetClass": "assetClass1",
-                "amount": 21.43
-            }, {
-                "assetClass": "assetClass2",
-                "amount": 23.42
-            }, {
-                "assetClass": "assetClass3",
-                "amount": 19.31
-            }, {
-                "assetClass": "assetClass4",
-                "amount": 17.42
-            }, {
-                "assetClass": "assetClass5",
-                "amount": 20.00
-            }],
-            "ownership": false
-
-        },
-        {
-            "pid": "12336746",
-            "total": 12348.97,
-            "growthYTD": -89332.42,
-            "prfnPercent": -36.10,
-            "managementType": "Dynamik",
-            "pfOwner": "Agen Äkbgfeend",
-            "money": "EUR",
-            "riskProfile": "7",
-            "type": "Discretionary",
-            "assetClasses": [{
-                "assetClass": "assetClass1",
-                "amount": 21.43
-            }, {
-                "assetClass": "assetClass2",
-                "amount": 23.42
-            }, {
-                "assetClass": "assetClass3",
-                "amount": 19.31
-            }, {
-                "assetClass": "assetClass4",
-                "amount": 17.42
-            }, {
-                "assetClass": "assetClass5",
-                "amount": 20.00
-            }],
-            "ownership": true
-        },
-        {
-            "pid": "12336747",
-            "totalAmount": 2432.97,
-            "growthYTD": -35.42,
-            "prfnPercent": -43.10,
-            "managementType": "Dynamik",
-            "pfOwner": "Agen Äkbgfeend",
-            "money": "EUR",
-            "riskProfile": "low",
-            "type": "Discretionary",
-            "assetClasses": [{
-                "assetClass": "assetClass1",
-                "amount": 21.43
-            }, {
-                "assetClass": "assetClass2",
-                "amount": 23.42
-            }, {
-                "assetClass": "assetClass3",
-                "amount": 19.31
-            }, {
-                "assetClass": "assetClass4",
-                "amount": 17.42
-            }, {
-                "assetClass": "assetClass5",
-                "amount": 20.00
-            }],
-            "ownership": false
-        }
-    ];
-
-
     for (var i = 0; i < portfolioDetails.length; i++) {
         console.log(portfolioDetails.length + ' ' + i);
 
@@ -530,8 +441,8 @@ function processWelcomeRequest(data, contexts, res) {
 function processFaqRequest(data, res) {
 
     var datareturn = {
-        'botname': 'goku',
-        'features': ['Portfolio Management', 'Virtual credit card', 'Questions', 'Incident requests'],
+        'botname': 'Doby',
+        'features': ['Portfolio Management', 'Virtual Credit card'],
         'whatelse': 'I am working on more functionality',
         'speechText': 'I can help you with you these things'
     };
