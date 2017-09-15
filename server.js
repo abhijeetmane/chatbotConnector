@@ -165,6 +165,9 @@ app.post('/fulfillment', function(req, res) {
         case 'portfolio.compareportfolio':
             resultVal = comparePortfolios(req.body.result.parameters, req.body.result.contexts, res);
             break;
+        case 'portfolio.compareportfolioOptions':
+             resultVal = processPortfoliocheckboxRequest(req.body.result.parameters, req.body.result.contexts, res);
+             break;
         case 'faq':
             resultVal = processFaqRequest(req.body.result.parameters, res);
             break;
@@ -350,6 +353,33 @@ function processPortfolioRequest(data, contexts, res) {
         'portfoliolist': [{
             "portfolioslist": ["12336745", "12336746", "12336747"],
             "dataType": "clickablelist"
+        }],
+        // "portfolioDtl": portfolioDtl,
+        'speechText': 'Please find list of available portfolios'
+    };
+    var result = {
+        "speech": JSON.stringify(datareturn),
+        "displayText": "Portfolio History is returned from services",
+        "data": JSON.stringify(datareturn),
+        "contextOut": [],
+        "source": "Portfolio History Service"
+    };
+    console.log(result);
+
+    res.send(JSON.stringify(result));
+    return result;
+}
+
+function processPortfoliocheckboxRequest(data, contexts, res) {
+
+    console.log('inside processPortfoliocheckboxRequest');
+
+    var datareturn = {
+        // 'username':JSON.parse(contexts[0].name).name,
+        'username': 'abhijeet',
+        'portfoliocheckboxlist': [{
+            "multOptions": ["12336745", "12336746", "12336747"],
+            "dataType": "checkboxText"
         }],
         // "portfolioDtl": portfolioDtl,
         'speechText': 'Please find list of available portfolios'
