@@ -196,8 +196,10 @@ function processPortfolioDtlRequest(data, contexts, res) {
     ];
 
 
-    for(var i=0;i<=portfolioDetails.length; i++) {
-        if (portfolioDetails[i].pid == selectedportfolioID) {
+    for(var i=0; i<portfolioDetails.length; i++) {
+        console.log(portfolioDetails.length+' '+i);
+
+        if(portfolioDetails[i].pid == selectedportfolioID) {
             portfolioDtl= portfolioDetails[i];
         }
 
