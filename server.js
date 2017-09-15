@@ -103,7 +103,7 @@ function processPortfolioDtlRequest(data, contexts, res) {
 
     console.log('inside processPortfolioDtlRequest');
 
-    console.log(contexts);
+    console.log(contexts[0].parameters);
 
     var portfolioDtl = [{
             "pid": "12336745",
@@ -207,7 +207,6 @@ function processPortfolioDtlRequest(data, contexts, res) {
         "displayText": "Portfolio History is returned from services",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "resetContexts":true,
         "source": "Portfolio History Service"
     };
     console.log(result);
@@ -222,7 +221,7 @@ function processPortfolioRequest(data, contexts, res) {
 
     console.log('inside processPortfolioRequest');
 
-    console.log(contexts);
+    console.log(contexts[0].parameters);
 
     var portfolioDtl = [{
             "pid": "12336745",
@@ -326,7 +325,6 @@ function processPortfolioRequest(data, contexts, res) {
         "displayText": "Portfolio History is returned from services",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "resetContexts":true,
         "source": "Portfolio History Service"
     };
     console.log(result);
