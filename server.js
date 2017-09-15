@@ -13,23 +13,22 @@ var portfolioDetails = [{
         "riskProfile": "7",
         "type": "Discretionary",
         "assetClasses": [{
-            "assetClass": "assetClass1",
-            "amount": 21.43
+            "amount": 21.43,
+            "assetClass": "Liquidity"
         }, {
-            "assetClass": "assetClass2",
-            "amount": 23.42
+            "amount": 23.42,
+            "assetClass": "Fixed Income"
         }, {
-            "assetClass": "assetClass3",
-            "amount": 19.31
+            "amount": 17.31,
+            "assetClass": "Equities"
         }, {
-            "assetClass": "assetClass4",
-            "amount": 17.42
+            "amount": 17.42,
+            "assetClass": "Alternative Investments"
         }, {
-            "assetClass": "assetClass5",
-            "amount": 20.00
+            "amount": 20.42,
+            "assetClass": "Futures and Options"
         }],
         "ownership": false
-
     },
     {
         "pid": "12336746",
@@ -42,20 +41,20 @@ var portfolioDetails = [{
         "riskProfile": "7",
         "type": "Discretionary",
         "assetClasses": [{
-            "assetClass": "assetClass1",
-            "amount": 21.43
+            "amount": 9,
+            "assetClass": "Liquidity"
         }, {
-            "assetClass": "assetClass2",
-            "amount": 23.42
+            "amount": 29,
+            "assetClass": "Fixed Income"
         }, {
-            "assetClass": "assetClass3",
-            "amount": 19.31
+            "amount": 21,
+            "assetClass": "Equities"
         }, {
-            "assetClass": "assetClass4",
-            "amount": 17.42
+            "amount": 27,
+            "assetClass": "Alternative Investments"
         }, {
-            "assetClass": "assetClass5",
-            "amount": 20.00
+            "amount": 14,
+            "assetClass": "Futures and Options"
         }],
         "ownership": true
     },
@@ -70,20 +69,20 @@ var portfolioDetails = [{
         "riskProfile": "low",
         "type": "Discretionary",
         "assetClasses": [{
-            "assetClass": "assetClass1",
-            "amount": 21.43
+            "amount": 11,
+            "assetClass": "Liquidity"
         }, {
-            "assetClass": "assetClass2",
-            "amount": 23.42
+            "amount": 2,
+            "assetClass": "Fixed Income"
         }, {
-            "assetClass": "assetClass3",
-            "amount": 19.31
+            "amount": 65,
+            "assetClass": "Equities"
         }, {
-            "assetClass": "assetClass4",
-            "amount": 17.42
+            "amount": 9,
+            "assetClass": "Alternative Investments"
         }, {
-            "assetClass": "assetClass5",
-            "amount": 20.00
+            "amount": 13,
+            "assetClass": "Futures and Options"
         }],
         "ownership": false
     }
@@ -302,8 +301,8 @@ function processAssetDtlRequest(data, contexts, res) {
 
     console.log(contexts[0].parameters);
     var selectedportfolioID = contexts[0].parameters.number;
-    if(!contexts[0].parameters.number){
-        selectedportfolioID=contexts[0].parameters.defaultNumber;
+    if (!contexts[0].parameters.number) {
+        selectedportfolioID = contexts[0].parameters.defaultNumber;
     }
     var portfolioAssetDtl;
 
