@@ -198,7 +198,7 @@ function processPortfolioDtlRequest(data, contexts, res) {
 
     for(var i=0;i<=portfolioDetails.length; i++) {
         if (portfolioDetails[i].pid == selectedportfolioID) {
-            portfolioDtl= portfolios[i];
+            portfolioDtl= portfolioDetails[i];
         }
 
     }
