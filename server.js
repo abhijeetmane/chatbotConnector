@@ -391,14 +391,14 @@ function processPortfolioDtlRequest(data, contexts, res) {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
         "portfolioDtl": portfolioDtl,
-        'speechText': 'Please find Details of your portfolios'
-    };
+        'speechText': 'Details of your portfolio are'
+    }
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Please find Details of your portfolios",
+        "displayText": "Details of your portfolio are",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "Details of your portfolio are"
     };
     console.log(result);
 
@@ -458,15 +458,15 @@ function comparePortfolios(data, contexts, res) {
             "labels": ["Liquidität", "Rentenanlagen", "Aktienanlagen", "Alternative Investments", "Futures und Optionen"]
         },
 
-        'speechText': 'Please find comparision Details of your portfolios'
+        'speechText': 'Comparision Details of your portfolio'
     };
 
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Please find comparision Details of your portfolios",
+        "displayText": "Comparision Details of your portfolio",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "Comparision Details of your portfolio"
     };
     console.log(result);
 
@@ -501,14 +501,14 @@ function processAssetDtlRequest(data, contexts, res) {
             "chartData": portfolioAssetDtl,
             "dataType": "donutChart"
         },
-        'speechText': 'Please find Asset Details of your portfolio'
+        'speechText': 'Asset Details of your portfolio'
     };
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Please find Details of your portfolios",
+        "displayText": "Asset Details of your portfolio",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "Asset Details of your portfolio"
     };
     console.log(result);
 
@@ -531,14 +531,14 @@ function processPortfolioRequest(data, contexts, res) {
             "dataType": "clickablelist"
         }],
         // "portfolioDtl": portfolioDtl,
-        'speechText': 'Please find list of available portfolios'
+        'speechText': 'List of Available portfolios'
     };
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Portfolio History is returned from services",
+        "displayText": "List of Available portfolios",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "List of Available portfolios"
     };
     console.log(result);
 
@@ -558,14 +558,14 @@ function processPortfoliocheckboxRequest(data, contexts, res) {
             "dataType": "checkboxText"
         },
         // "portfolioDtl": portfolioDtl,
-        'speechText': 'Please find list of available portfolios'
+        'speechText': 'Select portfolios for Comparision'
     };
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Portfolio History is returned from services",
+        "displayText": "Select portfolios for Comparision",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "Select portfolios for Comparision"
     };
     console.log(result);
 
