@@ -196,12 +196,12 @@ function processPortfolioDtlRequest(data, contexts, res) {
     ];
 
 
-    angular.forEach(portfolioDetails, function(portfolios,index) {
-        if (portfolios.pid == selectedportfolioID) {
-            portfolioDtl= portfolios[index];
+    for(var i=0;i<=portfolioDetails.length; i++) {
+        if (portfolios[i].pid == selectedportfolioID) {
+            portfolioDtl= portfolios[i];
         }
 
-    })
+    }
 
     var datareturn = {
         // 'username':JSON.parse(contexts[0].name).name,
