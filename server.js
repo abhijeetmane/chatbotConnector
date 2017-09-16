@@ -85,6 +85,61 @@ var portfolioDetails = [{
             "assetClass": "Futures and Options"
         }],
         "ownership": false
+    },
+    {
+        "pid": "12336748",
+        "totalAmount": 8332.97,
+        "growthYTD": -35.42,
+        "prfnPercent": -43.10,
+        "managementType": "Dynamik",
+        "pfOwner": "Agen Äkbgfeend",
+        "money": "EUR",
+        "riskProfile": "low",
+        "type": "Discretionary",
+        "assetClasses": [{
+            "amount": 9,
+            "assetClass": "Liquidity"
+        }, {
+            "amount": 3,
+            "assetClass": "Fixed Income"
+        }, {
+            "amount": 63,
+            "assetClass": "Equities"
+        }, {
+            "amount": 12,
+            "assetClass": "Alternative Investments"
+        }, {
+            "amount": 13,
+            "assetClass": "Futures and Options"
+        }],
+        "ownership": false
+    },{
+        "pid": "12336749",
+        "totalAmount": 7645.97,
+        "growthYTD": -35.42,
+        "prfnPercent": -43.10,
+        "managementType": "Dynamik",
+        "pfOwner": "Agen Äkbgfeend",
+        "money": "EUR",
+        "riskProfile": "low",
+        "type": "Discretionary",
+        "assetClasses": [{
+            "amount": 5,
+            "assetClass": "Liquidity"
+        }, {
+            "amount": 7,
+            "assetClass": "Fixed Income"
+        }, {
+            "amount": 60,
+            "assetClass": "Equities"
+        }, {
+            "amount": 12,
+            "assetClass": "Alternative Investments"
+        }, {
+            "amount": 16,
+            "assetClass": "Futures and Options"
+        }],
+        "ownership": false
     }
 ];
 
