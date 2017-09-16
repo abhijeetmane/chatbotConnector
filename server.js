@@ -369,7 +369,9 @@ function vcShowVcCreditCard(data, res) {
     console.log("input data");
     console.log(data.number);
     if (data.number === null || data.number === undefined || data.number === "") {
-        datareturn = "Please enter amount";
+       var datareturn = {
+            "amountKey": "Please enter amount"
+        };
     }
     var result = {
         "speech": JSON.stringify(datareturn),
@@ -410,14 +412,14 @@ function vcShowCreditCards(data, res) {
                 "cardStatus": "Active"
             }]
         }],
-        'speechText': 'Please find the accounts'
+        'speechText': 'Your credit cards'
     }
     var result = {
         "speech": JSON.stringify(datareturn),
         "displayText": "Please find the accounts",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Please find the accounts"
+        "source": "Your credit cards"
     };
     console.log(result);
 
