@@ -113,7 +113,7 @@ var portfolioDetails = [{
             "assetClass": "Futures and Options"
         }],
         "ownership": false
-    },{
+    }, {
         "pid": "12336749",
         "totalAmount": 7645.97,
         "growthYTD": -35.42,
@@ -323,7 +323,9 @@ function vcAccountBalance(data, res) {
     };
 
     if (data.number === null || data.number === undefined || data.number === "") {
-        var datareturn = "Please enter account number you want to retrieve balance";
+        var datareturn = {
+            "accountKey": "Please enter account number or credit card number you want to retrieve balance"
+        };
     } else if (data.number === "NL91ABNA0417164300") {
         var datareturn = datareturnaccount;
     } else {
@@ -582,7 +584,7 @@ function processPortfolioRequest(data, contexts, res) {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
         'portfoliolist': [{
-            "portfolioslist": ["12336745", "53367461", "3888332","92174565","12336749"],
+            "portfolioslist": ["12336745", "53367461", "3888332", "92174565", "12336749"],
             "dataType": "clickablelist"
         }],
         // "portfolioDtl": portfolioDtl,
@@ -609,7 +611,7 @@ function processPortfoliocheckboxRequest(data, contexts, res) {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
         'portfoliocheckboxlist': {
-            "multOptions": ["12336745", "53367461", "3888332","92174565","12336749"],
+            "multOptions": ["12336745", "53367461", "3888332", "92174565", "12336749"],
             "dataType": "checkboxText"
         },
         // "portfolioDtl": portfolioDtl,
@@ -673,7 +675,7 @@ function processAccountRequest(data, res) {
 
 function processWelcomeRequest(data, contexts, res) {
 
-var datareturn = {
+    var datareturn = {
         'botname': 'Dobby',
         'username': 'abhijeet',
         'botFeatures': {
