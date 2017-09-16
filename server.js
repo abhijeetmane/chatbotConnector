@@ -276,14 +276,14 @@ function vcShowAccounts(data, res) {
             "creditcardsTotalBalance": -496.4,
             "creditcardsTotalCurrency": "EUR"
         }],
-        'speechText': 'please find the accounts'
+        'speechText': 'Account details of your Account'
     };
     var result = {
         "speech": JSON.stringify(datareturn),
         "displayText": "Please find Details of your portfolios",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "please find the accounts"
+        "source": "Account details of your Account"
     };
     console.log(result);
 
@@ -304,7 +304,7 @@ function vcAccountBalance(data, res) {
             "cardBalanceDate": "16/09/2017",
             "cardCurrency": "EUR"
         }],
-        'speechText': 'please find the accounts'
+        'speechText': 'Balance details of your Account'
     };
 
     var datareturnCC = {
@@ -319,7 +319,7 @@ function vcAccountBalance(data, res) {
             "cardBalanceDate": "16/09/2017",
             "cardCurrency": "EUR"
         }],
-        'speechText': 'please find the accounts'
+        'speechText': 'Balance details of your Account'
     };
 
     if (data.number === null || data.number === undefined || data.number === "") {
@@ -337,7 +337,7 @@ function vcAccountBalance(data, res) {
         "displayText": "Please find Details of your portfolios",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "please find the accounts"
+        "source": "Balance details of your Account"
     };
     console.log(result);
 
@@ -363,7 +363,7 @@ function vcShowVcCreditCard(data, res) {
             "cardValidTill": "31/10/2017",
             "cardStatus": "Active"
         }],
-        'speechText': 'please find the accounts'
+        'speechText': 'Your virtual credit card'
     };
 
     console.log("input data");
@@ -376,7 +376,7 @@ function vcShowVcCreditCard(data, res) {
         "displayText": JSON.stringify(datareturn),
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "please find the accounts"
+        "source": "Your virtual credit card"
     };
     console.log(result);
 
@@ -410,14 +410,14 @@ function vcShowCreditCards(data, res) {
                 "cardStatus": "Active"
             }]
         }],
-        'speechText': 'please find the accounts'
+        'speechText': 'Please find the accounts'
     }
     var result = {
         "speech": JSON.stringify(datareturn),
-        "displayText": "Please find Details of your portfolios",
+        "displayText": "Please find the accounts",
         "data": JSON.stringify(datareturn),
         "contextOut": [],
-        "source": "Portfolio History Service"
+        "source": "Please find the accounts"
     };
     console.log(result);
 
