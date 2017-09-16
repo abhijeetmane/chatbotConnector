@@ -31,7 +31,7 @@ var portfolioDetails = [{
         "ownership": false
     },
     {
-        "pid": "12336746",
+        "pid": "53367461",
         "total": 12348.97,
         "growthYTD": -89332.42,
         "prfnPercent": -36.10,
@@ -59,7 +59,7 @@ var portfolioDetails = [{
         "ownership": true
     },
     {
-        "pid": "12336747",
+        "pid": "3888332",
         "totalAmount": 2432.97,
         "growthYTD": -35.42,
         "prfnPercent": -43.10,
@@ -87,7 +87,7 @@ var portfolioDetails = [{
         "ownership": false
     },
     {
-        "pid": "12336748",
+        "pid": "92174565",
         "totalAmount": 8332.97,
         "growthYTD": -35.42,
         "prfnPercent": -43.10,
@@ -582,7 +582,7 @@ function processPortfolioRequest(data, contexts, res) {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
         'portfoliolist': [{
-            "portfolioslist": ["12336745", "12336746", "12336747"],
+            "portfolioslist": ["12336745", "53367461", "3888332","92174565","12336749"],
             "dataType": "clickablelist"
         }],
         // "portfolioDtl": portfolioDtl,
@@ -609,7 +609,7 @@ function processPortfoliocheckboxRequest(data, contexts, res) {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
         'portfoliocheckboxlist': {
-            "multOptions": ["12336745", "12336746", "12336747"],
+            "multOptions": ["12336745", "53367461", "3888332"],
             "dataType": "checkboxText"
         },
         // "portfolioDtl": portfolioDtl,
