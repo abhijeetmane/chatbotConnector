@@ -609,7 +609,7 @@ function processPortfoliocheckboxRequest(data, contexts, res) {
         // 'username':JSON.parse(contexts[0].name).name,
         'username': 'abhijeet',
         'portfoliocheckboxlist': {
-            "multOptions": ["12336745", "53367461", "3888332"],
+            "multOptions": ["12336745", "53367461", "3888332","92174565","12336749"],
             "dataType": "checkboxText"
         },
         // "portfolioDtl": portfolioDtl,
